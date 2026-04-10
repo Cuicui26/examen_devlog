@@ -18,17 +18,20 @@ help :
 
 
 $(BUILD)/test01 : $(TEST)/test01.c 
-	@echo "### compilation .o de test01"
+	@echo "### compilation de test01"
 	gcc -Wall $(TEST)/test01.c -o $(BUILD)/test01
 
 $(BUILD)/test02 : $(TEST)/test02.c $(LIB)/liste-c.o
-	@echo "### compilation .o de test02"
+	@echo "### compilation de test02"
 	gcc -Wall $(TEST)/test02.c $(LIB)/liste-c.o -o $(BUILD)/test02
 
 $(BUILD)/test03 : $(TEST)/test03.c $(LIB)/liste-c.o
-	@echo "### compilation .o de test03"
+	@echo "### compilation de test03"
 	gcc -Wall $(TEST)/test03.c $(LIB)/liste-c.o -o $(BUILD)/test03
 
+bench_test02 : $(TEST)/test02.c $(LIB)/liste-c.o
+	@echo "### compilation de test02"
+	gcc -Wall -g -fsanitize=address $(TEST)/test02.c $(LIB)/liste-c.o -o $(BUILD)/test02
 
 
 # nettoyage du projet
