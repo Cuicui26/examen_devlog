@@ -2,9 +2,11 @@ SRC = src
 BUILD = build
 BIN = bin
 TEST = test
+LIB = lib
 
 
 test01 : $(BUILD)/test01
+test02 : $(BUILD)/test02
 
 help :
 	@echo "Cible disponible :"
@@ -17,6 +19,11 @@ help :
 $(BUILD)/test01 : $(TEST)/test01.c 
 	@echo "### compilation .o de test01"
 	gcc -Wall $(TEST)/test01.c -o $(BUILD)/test01
+
+$(BUILD)/test02 : $(TEST)/test02.c $(LIB)/liste-c.o
+	@echo "### compilation .o de test02"
+	gcc -Wall $(TEST)/test02.c $(LIB)/liste-c.o -o $(BUILD)/test02
+
 
 
 
