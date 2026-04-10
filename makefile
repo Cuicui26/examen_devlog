@@ -7,6 +7,7 @@ LIB = lib
 
 test01 : $(BUILD)/test01
 test02 : $(BUILD)/test02
+test03 : $(BUILD)/test03
 
 help :
 	@echo "Cible disponible :"
@@ -24,6 +25,9 @@ $(BUILD)/test02 : $(TEST)/test02.c $(LIB)/liste-c.o
 	@echo "### compilation .o de test02"
 	gcc -Wall $(TEST)/test02.c $(LIB)/liste-c.o -o $(BUILD)/test02
 
+$(BUILD)/test03 : $(TEST)/test03.c $(LIB)/liste-c.o
+	@echo "### compilation .o de test03"
+	gcc -Wall $(TEST)/test03.c $(LIB)/liste-c.o -o $(BUILD)/test03
 
 
 
